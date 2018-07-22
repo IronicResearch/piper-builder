@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # low-budget builder for piper3 components
 
