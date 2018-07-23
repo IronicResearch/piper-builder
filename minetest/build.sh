@@ -3,7 +3,7 @@
 echo "building minetest..."
 
 if [ ! -d minetest ]; then
-	git fetch https://github.com/buildwithpiper/minetest.git piper3-crosscompile
+	git clone https://github.com/buildwithpiper/minetest.git -b piper3-crosscompile
 fi
 
 pushd minetest
