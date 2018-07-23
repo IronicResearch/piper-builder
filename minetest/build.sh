@@ -2,6 +2,10 @@
 
 echo "building minetest..."
 
+if [ ! -d minetest ]; then
+	git fetch https://github.com/buildwithpiper/minetest.git piper3-crosscompile
+fi
+
 pushd minetest
 cmake . -DCMAKE_TOOLCHAIN_FILE=toolchain.cmake \
 	-DRUN_IN_PLACE=1 -DBUILD_SERVER=0 \
