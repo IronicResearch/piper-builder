@@ -21,7 +21,8 @@ popd
 if [ ! -d mesa ]; then
 	git clone git://anongit.freedesktop.org/mesa/mesa.git -b 17.1
 	cd mesa
-	./autogen.sh --host=arm-linux --prefix=$EROOTFS/usr
+	patch -p1 < ../fix-mesa-hard-links.patch
+	./autogen.sh --host=arm-linux --prefix=$EROOTFS/usr --with-gallium-drivers=vc4 --with-dri-drivers=  --with-egl-platforms=x11,drm
 	cd ..
 fi
 

@@ -1,0 +1,39 @@
+diff --git a/install-gallium-links.mk b/install-gallium-links.mk
+index fc2f75d..588dca3 100644
+--- a/install-gallium-links.mk
++++ b/install-gallium-links.mk
+@@ -19,7 +19,7 @@ all-local : .install-gallium-links
+ 		if test -h .libs/$$f; then			\
+ 			cp -d $$f $$link_dir;			\
+ 		else						\
+-			ln -f $$f $$link_dir;			\
++			cp -d $$f $$link_dir;			\
+ 		fi;						\
+ 	done && touch $@
+ endif
+diff --git a/install-lib-links.mk b/install-lib-links.mk
+index 5fe9141..bca49f8 100644
+--- a/install-lib-links.mk
++++ b/install-lib-links.mk
+@@ -11,7 +11,7 @@ all-local : .install-mesa-links
+ 		if test -h .libs/$$f; then			\
+ 			cp -d $$f $(top_builddir)/$(LIB_DIR);	\
+ 		else						\
+-			ln -f $$f $(top_builddir)/$(LIB_DIR);	\
++			cp -d $$f $(top_builddir)/$(LIB_DIR);	\
+ 		fi;						\
+ 	done && touch $@
+ 
+diff --git a/src/gallium/targets/dri/Makefile.am b/src/gallium/targets/dri/Makefile.am
+index c54f7a6..02ce2bd 100644
+--- a/src/gallium/targets/dri/Makefile.am
++++ b/src/gallium/targets/dri/Makefile.am
+@@ -122,7 +122,7 @@ all-local: $(dri_LTLIBRARIES)
+ 	$(AM_V_GEN)link_dir=$(top_builddir)/$(LIB_DIR)/gallium;         \
+ 	$(MKDIR_P) $${link_dir};                                        \
+ 	for i in $(TARGET_DRIVERS); do                                  \
+-		ln -f .libs/gallium_dri.so                              \
++		cp -d .libs/gallium_dri.so                              \
+ 			$${link_dir}/$${i}_dri.so;                      \
+ 	done
+ 
