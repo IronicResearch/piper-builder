@@ -9,7 +9,7 @@ fi
 echo "building ffmpeg libs..."
 
 pushd ffmpeg
-./configure --prefix=$EROOTFS/usr --enable-cross-compile --cross-prefix=$CROSS_COMPILE --sysroot=$ERPOTFS --arch=arm --target-os=linux --cpu=cortex-a53 --enable-vfp --enable-neon --enable-libdrm --enable-shared
+./configure --prefix=$EROOTFS/usr --enable-cross-compile --cross-prefix=$CROSS_COMPILE --sysroot=$EROOTFS --arch=arm --target-os=linux --cpu=cortex-a53 --enable-vfp --enable-neon --enable-libdrm --enable-shared
 make -j4
 make install
 popd
