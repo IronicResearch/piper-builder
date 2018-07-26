@@ -19,7 +19,8 @@ pushd ffmpeg
 	--enable-parser=aac,h264,mpeg4video,mpegaudio,vorbis \
 	--enable-demuxer=aac,h264,mpeg4,mp3,ogg,wav,pcm_s16le,mov,aiff \
 	--enable-decoder=aac,h264,mpeg4,mp3,vorbis,pcm_s16le \
-	--enable-lzo
+	--enable-lzo \
+	--disable-debug
 make -j4
 make install
 popd
@@ -34,10 +35,13 @@ fi
 echo "building mpv..."
 
 pushd mpv
-./waf configure --prefix=$EROOTFS/usr --enable-libmpv-shared --enable-drm --enable-openal --disable-libass --disable-wayland
+./waf configure --prefix=$EROOTFS/usr --enable-libmpv-shared --enable-drm --enable-openal --disable-libass --disable-wayland --disable-debug-build
 ./waf build -j4
 ./waf install
 popd
+
+${CROSS_COMPILE}strip ${EROOTFS}/usr/lib/libav*.so*
+${CROSS_COMPILE}strip ${EROOTFS}/usr/lib/libmpv*.so*
 
 exit $?
 
