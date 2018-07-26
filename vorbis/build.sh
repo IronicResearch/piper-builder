@@ -31,4 +31,7 @@ make -j4
 make install
 popd
 
+${CROSS_COMPILE}strip ${EROOTFS}/usr/lib/libogg*.so*
+${CROSS_COMPILE}strip ${EROOTFS}/usr/lib/libvorbis*.so*
+
 exit $?
