@@ -10,6 +10,9 @@
 # package check
 
 # erootfs check
+if [ ! -d erootfs ]; then
+	./unpack-erootfs.sh
+fi
 
 # build components
 PACKAGES=( "irrlicht" "minetest" )
