@@ -19,3 +19,7 @@ export LDFLAGS="--sysroot=${EROOTFS}"
 echo CFLAGS=$CFLAGS
 echo CXXFLAGS=$CXXFLAGS
 echo LDFLAGS=$LDFLAGS
+
+# locate pkgconfig paths per erootfs path
+export PKG_CONFIG_PATH=${EROOTFS}/usr/lib/pkgconfig:${EROOTFS}/usr/lib/arm-linux-gnueabihf/pkgconfig
+echo PKG_CONFIG_PATH=$PKG_CONFIG_PATH

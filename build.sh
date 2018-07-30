@@ -15,7 +15,7 @@ if [ ! -d erootfs ]; then
 fi
 
 # build components
-PACKAGES=( "irrlicht" "minetest" )
+PACKAGES=( "irrlicht" "minetest" "mesa" "vorbis" "mpv" )
 for p in ${PACKAGES[@]} 
 do
 	echo $p
