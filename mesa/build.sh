@@ -29,7 +29,7 @@ fi
 echo "building mesa driver libs..."
 
 pushd mesa
-./configure --host=arm-linux --prefix=$EROOTFS/usr --with-gallium-drivers=vc4 --with-dri-drivers=  --with-egl-platforms=x11,drm
+./configure --host=arm-linux --prefix=$EROOTFS/usr --with-gallium-drivers=vc4 --with-dri-drivers=  --with-egl-platforms=x11,drm --disable-xvmc
 make -j4
 make install
 popd
