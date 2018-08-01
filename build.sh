@@ -6,8 +6,26 @@
 . ./set-env.sh
 
 # compiler check
+RESULT=`which $CC`
+RESULT=$?
+echo "$CC returned $RESULT"
+RESULT=`which $CXX`
+RESULT=$?
+echo "$CXX returned $RESULT"
 
 # package check
+if [ $RESULT -ne 0 ]; then
+	cat host-packages |
+	while IFS=: read p
+	do
+		echo $p
+		apt list $p
+		RESULT=$?
+		if [ $RESULT -ne 0 ]; then
+			sudo apt install $p
+		fi
+	done
+fi
 
 # erootfs check
 if [ ! -d erootfs ]; then
