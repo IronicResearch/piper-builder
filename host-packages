@@ -1,4 +1,5 @@
 binutils
+make
 gcc-arm-linux-gnueabihf
 g++-arm-linux-gnueabihf
 pkg-config-arm-linux-gnueabihf
@@ -17,4 +18,4 @@ x11proto-present-dev
 libxext-dev
 libxfixes-dev
 libxdamage-dev
-
+libluajit-5.1-dev
