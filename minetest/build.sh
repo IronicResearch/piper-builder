@@ -8,7 +8,7 @@ fi
 
 pushd minetest
 cmake . -DCMAKE_TOOLCHAIN_FILE=toolchain.cmake \
-	-DCMAKE_INSTALL_PREFIX=$EROOTFS/usr \
+	-DCMAKE_INSTALL_PREFIX=$EROOTFS/usr/share/minetest \
 	-DRUN_IN_PLACE=1 -DBUILD_SERVER=0 \
 	-DENABLE_LUAJIT=1 \
 	-DLUA_INCLUDE_DIR=$EROOTFS/usr/include/luajit-2.0 \
@@ -17,7 +17,7 @@ cmake . -DCMAKE_TOOLCHAIN_FILE=toolchain.cmake \
 	-DIRRLICHT_LIBRARY=../../irrlicht/irrlicht/lib/Linux/libIrrlicht.a \
 	-DENABLE_GLES=0
 make -j4
-make install
+make install/strip
 popd
 
 exit $?

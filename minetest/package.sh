@@ -16,7 +16,7 @@ fi
 
 if [ ! -d $EROOTFS/usr/share/minetest ]; then
 	pushd minetest
-	make install
+	make install/strip
 	popd
 fi
 
@@ -34,12 +34,12 @@ cp -RL	piper-mods/piper/		$DEST/mods
 cp -R	mineclone2			$DEST/games
 cp -R	mars-world/marsWorld-Latest	$DEST/worlds
 
-cp	$EROOTFS/usr/bin/minetest	$DEST/bin
 cp -a	$EROOTFS/usr/lib/*.so*		$DEST/lib
 cp -a	$EROOTFS/usr/lib/dri/*.so*	$DEST/lib
 cp -a	minetest.sh			$DEST
+cp -a	update.sh			$DEST
 
-tar -czvf minetest.tar.gz -C $EROOTFS/usr/share/ minetest/
+tar -czvf minetest.tar.gz -C $EROOTFS/usr/share/ minetest/ --exclude=.git*
 
 exit $?
 
