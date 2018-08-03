@@ -27,9 +27,14 @@ mkdir -p $DEST/worlds
 mkdir -p $DEST/clientmods
 
 cp	piper-mods/minetest.conf 	$DEST
-cp -RL	piper-mods/piper-client/*	$DEST/clientmods
+cp -Ra	piper-mods/piper-client/*	$DEST/clientmods
 cp -RL	piper-mods/external/		$DEST/mods
 cp -RL	piper-mods/piper/		$DEST/mods
+
+# fixup for piper-mods/piper-client symlinks
+pushd 	$DEST
+ln -s	mods/piper			piper
+popd
 
 cp -R	mineclone2			$DEST/games
 cp -R	mars-world/marsWorld-Latest	$DEST/worlds
