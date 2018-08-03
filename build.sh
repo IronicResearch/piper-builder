@@ -44,6 +44,12 @@ do
 done
 
 # package components
+if [ $RESULT -eq 0 ]; then
+	pushd minetest
+	./package.sh
+	mv minetest.tar.gz ..
+	popd
+fi
 
 echo "done building, result=$RESULT"
 
