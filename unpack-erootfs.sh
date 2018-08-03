@@ -11,7 +11,8 @@ if [ ! -d erootfs.minetest ]; then
 	BRANCH=${BRANCH:-HEAD}
 	echo $BRANCH
 
-	if [ $BRANCH != "erootfs-=archive" ]; then
+	# switch branches for erootfs archive
+	if [ $BRANCH != "erootfs-archive" ]; then
 		echo "switching from branch = $BRANCH"
 		git checkout erootfs-archive
 		SWITCH=1
