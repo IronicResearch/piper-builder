@@ -41,8 +41,8 @@ cp -R	mars-world/marsWorld-Latest	$DEST/worlds
 
 cp -a	$EROOTFS/usr/lib/*.so*		$DEST/lib
 cp -a	$EROOTFS/usr/lib/dri/*.so*	$DEST/lib
-cp -a	minetest.sh			$DEST
-cp -a	update.sh			$DEST
+cp -a	minetest/minetest.sh		$DEST
+cp -a	minetest/update.sh		$DEST
 
 tar -czvf minetest.tar.gz -C $EROOTFS/usr/share/ minetest/ --exclude=.git*
 
