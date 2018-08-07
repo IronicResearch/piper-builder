@@ -15,16 +15,7 @@ echo "$CXX returned $RESULT"
 
 # package check
 if [ $RESULT -ne 0 ]; then
-	cat host-packages |
-	while IFS=: read p
-	do
-		echo $p
-		apt list $p
-		RESULT=$?
-		if [ $RESULT -ne 0 ]; then
-			apt install $p
-		fi
-	done
+	./install-host-packages.sh
 fi
 
 # erootfs check
