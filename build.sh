@@ -22,7 +22,7 @@ if [ $RESULT -ne 0 ]; then
 		apt list $p
 		RESULT=$?
 		if [ $RESULT -ne 0 ]; then
-			sudo apt install $p
+			apt install $p
 		fi
 	done
 fi
