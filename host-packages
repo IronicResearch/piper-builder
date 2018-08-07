@@ -1,3 +1,5 @@
+git
+wget
 binutils
 make
 gcc-arm-linux-gnueabihf
@@ -9,6 +11,7 @@ automake
 libtool
 bison
 flex
+python-mako
 gettext
 xutils-dev
 x11proto-gl-dev

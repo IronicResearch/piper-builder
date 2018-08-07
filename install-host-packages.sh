@@ -7,8 +7,8 @@ cat host-packages |
 		echo $p
 		apt list $p
 		RESULT=$?
-		if [ $RESULT -ne 0 ]; then
-			apt install $p
+		if [ $RESULT -eq 0 ]; then
+			apt install -y $p
 		fi
 	done
 
