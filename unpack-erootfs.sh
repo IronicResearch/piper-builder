@@ -6,7 +6,7 @@ SWITCH=0
 BRANCH=""
 
 if [ ! -d erootfs.minetest ]; then
-	BRANCH=`git symbolic-ref -q head`
+	BRANCH=`git symbolic-ref -q HEAD`
 	BRANCH=${BRANCH##refs/heads/}
 	BRANCH=${BRANCH:-HEAD}
 	echo $BRANCH
