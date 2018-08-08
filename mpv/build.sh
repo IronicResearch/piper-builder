@@ -3,7 +3,7 @@
 echo "building mpv libs..."
 
 if [ ! -d ffmpeg ]; then
-	git clone https://github.com/FFmpeg/FFmpeg.git -b release/4.0
+	git clone https://github.com/FFmpeg/FFmpeg.git -b release/4.0 ffmpeg
 fi
 
 echo "building ffmpeg libs..."
