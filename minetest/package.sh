@@ -43,6 +43,7 @@ cp -a	$EROOTFS/usr/lib/*.so*		$DEST/lib
 cp -a	$EROOTFS/usr/lib/dri/*.so*	$DEST/lib
 cp -a	minetest/minetest.sh		$DEST
 cp -a	minetest/update.sh		$DEST
+cp -a	LICENSE.libs.txt		$DEST/doc
 
 tar -czvf minetest.tar.gz -C $EROOTFS/usr/share/ minetest/ --exclude=.git*
 
