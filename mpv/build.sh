@@ -38,6 +38,7 @@ pushd mpv
 ./waf configure --prefix=$EROOTFS/usr --enable-libmpv-shared --enable-drm --enable-openal --disable-libass --disable-wayland --disable-pulse --disable-debug-build
 ./waf build -j4
 ./waf install
+cp -a LICENSE.* ${EROOTFS}/usr/lib
 popd
 
 ${CROSS_COMPILE}strip ${EROOTFS}/usr/lib/libav*.so*
