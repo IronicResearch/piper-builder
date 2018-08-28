@@ -19,8 +19,10 @@ invoked manually whenever the erootfs image needs to be regenerated from scratch
 	$ ./unpack-erootfs.sh
 
 The host packages needed for the builders are listed in 'host-packages', and will get
-automatically installed on the main build.sh first run. Will need 'sudo' credentials for
-installing the host packages via the Linux package manager.
+automatically installed on the main build.sh first run. May need 'sudo' credentials for
+installing the host packages via the Linux package manager as desktop user.
+
+	$ sudo ./install-host-packages.sh
 
 The main host tool is the ARM cross compiler, and will need some environment variables
 set via 'set-env.sh' script. Some of the builders use additional cross-compilation
@@ -30,7 +32,14 @@ component, you'll need to set env vars manually at the parent directory first.
 	$ . ./set-env.sh
 
 Note this is done at the project root directory in order to locate the erootfs path
-via the $EROOTFS env var. This is always invoked by the main build.sh builder.
+via the $EROOTFS env var. This is always invoked by the main build.sh builder,
+which also now supports individual build targets via command line options.
+
+	$ ./build.sh vorbis
+	$ ./build.sh mesa
+	$ ./build.sh mpv
+	$ ./build.sh irrlicht
+	$ ./build.sh minetest
 
 Specific ARM settings for the Cortex-A53 CPU on the RaspberryPi3 are preset by env vars
 for optimizing Piper Minetest and support libraries Irrlicht, Mesa/DRM/VC4, mpv/ffmpeg,
