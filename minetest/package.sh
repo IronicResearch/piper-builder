@@ -2,16 +2,21 @@
 
 echo "packaging minetest..."
 
+# default git login if not set externally via $REPO_USER
+if [ "x$REPO_USER" == "x" ]; then
+	REPO_USER=""
+fi
+
 if [ ! -d piper-mods ]; then
-	git clone --depth 1 https://github.com/buildwithpiper/piper-mods.git -b piper3-mods-config
+	git clone --depth 1 https://${REPO_USER}github.com/buildwithpiper/piper-mods.git -b piper3-mods-config
 fi
 
 if [ ! -d mineclone2 ]; then
-	git clone --depth 1 https://github.com/buildwithpiper/mineclone2.git -b master
+	git clone --depth 1 https://${REPO_USER}github.com/buildwithpiper/mineclone2.git -b master
 fi
 
 if [ ! -d mars-world ]; then
-	git clone --depth 1 https://github.com/buildwithpiper/mars-world.git -b master
+	git clone --depth 1 https://${REPO_USER}github.com/buildwithpiper/mars-world.git -b master
 fi
 
 if [ ! -d $EROOTFS/usr/share/minetest ]; then
