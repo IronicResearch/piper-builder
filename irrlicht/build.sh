@@ -3,7 +3,7 @@
 echo "building irrlicht..."
 
 if [ ! -d irrlicht ]; then
-	git clone https://github.com/IronicResearch/irrlicht.git -b release-1.8.4
+	git clone https://github.com/buildwithpiper/irrlicht.git -b release-1.8.4
 fi
 
 pushd irrlicht/source/Irrlicht
